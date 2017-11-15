@@ -16,15 +16,16 @@ docker-compose -f docker-compose.yml up
 </p>
 <p>
 For production
+</p>
 run `deploy.sh`. This will run the container in the background.
 </br>
-</p>
+
 <p>
 Otherwise run
+</p>
 ``
 docker-compose -f docker-compose-deploy.yml build
 `` </br>
 ``
 docker-compose -f docker-compose-deploy.yml up
 ``
-</p>
