@@ -1,0 +1,51 @@
+version: '2'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.release
+    env_file: ./.env
+    image: backend/backend
+    ports:
+      - 8000:8000
+    volumes:
+      - ./backend/src:/srv/app
+      - api-static:/srv/app/static/
+
+  celery-beat:
+    image: backend/backend
+    restart: always
+    env_file: ./.env
+    environment:
+      - DEBUG=off
+    command: celery -A backend beat -l INFO --pidfile /var/run/celerybeat.pid --schedule /tmp/celerybeat-schedule
+    volumes:
+      - ./logs:/tmp/logs
+
+  celery-worker:
+    image: backend/backend
+    restart: always
+    env_file: ./.env
+    environment:
+      - DEBUG=off
+    command: celery -A backend worker -l INFO -Q celery --concurrency=4
+    volumes:
+      - ./logs:/tmp/logs
+
+  nginx:
+    image: nginx:stable-alpine
+    restart: always
+    environment:
+      - NGINX_HOST=${NGINX_HOST}
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/conf/default.conf:/tmp/default.conf
+      - api-static:/srv/static:ro
+    links:
+      - backend:backend
+    command: /bin/sh -c "envsubst '$$NGINX_HOST' < /tmp/default.conf > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+
+volumes:
+  api-static:

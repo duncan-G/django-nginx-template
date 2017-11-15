@@ -1,0 +1,13 @@
+###RENAME .envtemp to .env
+###Add environment vars
+###Remove comments
+DEBUG=on
+SECRET_KEY=a_super_secret_key
+DATABASE_URL=postgres://u_name:pass@instance.rds.amazonaws.com:5432/database
+DEFAULT_FILE_STORAGE=storages.backends.s3boto3.S3Boto3Storage
+AWS_ACCESS_KEY_ID=key_id
+AWS_SECRET_ACCESS_KEY=_super_super_secret_key
+AWS_ACCESS_SQS_KEY_ID= #separate_user_for_sqs_queue. Change settings.py if you choose not to do this.
+AWS_SECRET_ACCESS_SQS_KEY= #super_sqs_secret
+NGINX_HOST=localhost
+
