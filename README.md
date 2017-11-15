@@ -20,9 +20,10 @@ run `deploy.sh`. This will run the container in the background.
 
 
 Otherwise run
+
 ``
 docker-compose -f docker-compose-deploy.yml build
-`` </br>
+``  </br>
 ``
 docker-compose -f docker-compose-deploy.yml up
 ``
