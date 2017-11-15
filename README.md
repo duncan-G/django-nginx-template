@@ -3,7 +3,7 @@
 
 A Dockerized Django 1.11 boilerplate with nginx as the reverse proxy. This meant to run on AWS with PostgreSQL on RDS and celery on Amazon SQS.
 
-Setup PostgreSQL DB and SQS queue. Make adjustments to .env file and place the correct AWS credentials. </br>
+Setup PostgreSQL DB on RDS and SQS queue. Make adjustments to .env file and place the correct AWS credentials. </br>
 To run locally us `docker-compose.yml` (Will NOT start celery beat or worker):
 
 ``
