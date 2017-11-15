@@ -6,14 +6,13 @@ A Dockerized Django 1.11 boilerplate with nginx as the reverse proxy meant to ru
 <p>
 Make adjustments to .env file and place the correct credentials. </br>
 To run locally (Will not start celery beat and worker):
-
+</p>
 ``
 docker-compose -f docker-compose.yml build
 `` </br>
 ``
 docker-compose -f docker-compose.yml up
 `` </br>
-</p>
 <p>
 For production
 </p>
