@@ -12,7 +12,7 @@ docker-compose -f docker-compose.yml build
 `` </br>
 ``
 docker-compose -f docker-compose.yml up
-``
+`` </br>
 For production
 run `deploy.sh`. This will run the container in the background.
 </br>
