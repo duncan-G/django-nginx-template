@@ -9,6 +9,7 @@ RUN apk add --no-cache --update \
       musl-dev \
       postgresql-client \
       postgresql-dev \
+      curl-dev \
 
 RUN pip install --no-cache-dir -r /srv/app/requirements.txt -r /srv/app/requirements-dev.txt
 
