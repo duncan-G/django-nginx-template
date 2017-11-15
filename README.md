@@ -9,6 +9,8 @@ To run locally (Will not start celery beat and worker):
 
 ``
 docker-compose -f docker-compose.yml build
+``
+``
 docker-compose -f docker-compose.yml up
 ``
 For production
@@ -17,6 +19,8 @@ run `deploy.sh`. This will run the container in the background.
 Otherwise run
 ``
 docker-compose -f docker-compose-deploy.yml build
+``
+``
 docker-compose -f docker-compose-deploy.yml up
 ``
 
